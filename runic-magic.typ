@@ -18,6 +18,7 @@
 // https://wiki.ultimacodex.com/wiki/Incantation
 // Elstob stylistic sets 12-14 are runes.
 // 12, Early English Futhorc, probably matches closest.
+// Elstob is big, download it here: https://github.com/psb1558/Elstob-font/releases/latest
 #let runes = (
   (glyph: "ᚫ", name: "An", meaning: "Negate"),
   (glyph: "ᛒ", name: "Bet", meaning: "Small"),
@@ -97,7 +98,7 @@
 
 #show smallcaps: set text(tracking: 0.05em)
 
-// #set strong(delta: 200)
+#set strong(delta: 200)
 
 = Runic Magic
 
@@ -140,14 +141,14 @@
 #pad(x: 72pt, top: 14pt)[
   == Draw Runes
 
-  When you have time for meditation and connecting with the sources of your power, return all your runes to the deck. Shuffle. Draw 2d6+level runes.
+  When you have time for meditation and connection with the sources of your power, return all your runes to the deck. Shuffle. *Draw 2d6+level runes.*
 
   == Cast Runic Magic
 
-  Combine runes to form a reasonable spell. To cast a spell, roll *2d6+modifiers*: \
-  *6-:* _miss_; the spell turns out badly.\
-  *7-9:* _partial success_; the spell is cast, but there's some cost, compromise, or harm. \
-  *10+:* _full success_; the spell is cast without complications. \
+  Combine runes to form a reasonable spell. To cast a spell, *roll 2d6+modifiers*:
+  - *6-:* _miss_; the spell turns out badly.\
+  - *7-9:* _partial success_; the spell is cast, but there's some cost, compromise, or harm.\
+  - *10+:* _full success_; the spell is cast without complications.\
 
   By default, a spell takes 30-60 seconds to cast, lasts for a single use or with active concentration, and affects you or someone you touch in a noticeable way. Once used, runes lose power until you #smallcaps[draw runes] again.
 
@@ -170,12 +171,12 @@
     ],
   )
 
-  Change to suit your systems of choice.
+  Change to suit your systems of choice. For example, to use with #link("https://claymorerpgs.itch.io/fist")[_FIST_,]\ draw 2d6+number of traits runes, and gain #smallcaps[a bag of runes] and +1 #smallcaps[max hp].
 
   #text(
     font: "ElstobD 8pt",
     size: 9pt,
-  )[Text by skander. Based on the system used in the _Ultima_ games. Some text and much inspiration from Tam H.'s #link("https://katamoiran.itch.io/remix")[_World of Dungeons Remix_]. Layout by #link("https://windowdump.github.io")[Window Dump].]
+  )[Original text by skander. Layout by #link("https://windowdump.github.io")[Window Dump]. Based on the system used in the\ _Ultima_ games. Some text and much inspiration from Tam H.'s #link("https://katamoiran.itch.io/remix")[_World of Dungeons Remix_].]
 ]
 
 #pagebreak()

@@ -21,3 +21,9 @@ Character sheet for [Remix](https://katamoiran.itch.io/remix) (WoDu Remix) that 
 
 # [Runic Magic](runic-magic.typ)
 Runic magic system based on the system in Ultima, designed to drop into _Remix_ easily. Based on [this doc by skander](https://docs.google.com/document/d/1Coy_8zLWFN8hPuXSwix95w_hEK9Ou5-vzjQl-MDiQl8/edit?usp=sharing).
+
+# [Disks & Daemons](disks-n-daemons/)
+FIST generative dungeon set in the proto-internet, inspired by what people thought computers were like in the 80's and what mainframe computers actually were like. Entry for [FIST: JAM OPS V](https://itch.io/jam/fist-jam-ops-v).
+
+# [Longshot City Character Sheet](longshot-city.typ)
+New character sheet for Longshot City, fits on US letter paper. Also includes a system reference sheet with damage lookup tables.

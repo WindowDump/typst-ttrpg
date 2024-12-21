@@ -449,18 +449,19 @@
   font: "Archivo",
   size: size,
   // stretch: 110%,
-  weight: 300,
+  weight: 500,
   tracking: 0.08em,
 )
 
 #let pamph_l_h2(
   content,
+  size: 11.5pt,
 ) = text(
   upper(content),
   hyphenate: false,
   fill: black,
   font: "Archivo",
-  size: 11pt,
+  size: size,
   stretch: 75%,
   weight: 500,
   tracking: 0.085em,
@@ -486,9 +487,9 @@
   fill: white,
   font: "Archivo",
   size: size,
-  stretch: 110%,
-  weight: 500,
-  // tracking: 0.05em,
+  stretch: 150%,
+  weight: 600,
+  tracking: -0.03em,
 )
 
 #let pamph_d_h2(
@@ -540,8 +541,14 @@
 
 #let pamphlet_light(content) = [
   #show heading: set par(leading: 3pt, justify: false)
-  #show heading.where(level: 1): it => block(pamph_l_h1_bar(it.body))
-  #show heading.where(level: 2): it => block(pamph_l_h2(it.body), above: auto)
+  #show heading.where(level: 1): it => block(
+    pamph_l_h1_bar(it.body),
+    above: 10pt,
+  )
+  #show heading.where(level: 2): it => block(
+    pamph_l_h2(it.body),
+    above: auto,
+  )
   #show heading.where(level: 3): it => block(pamph_l_h3(it.body))
 
   #set par(

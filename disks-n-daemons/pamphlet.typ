@@ -1,5 +1,5 @@
 #set document(
-  title: "Disks & Daemons",
+  title: "Disks & Daemons - Screen Version",
   author: "Window Dump",
   keywords: ("fist", "world of dungeons", "wodu", "pbta", "osr", "nsr"),
 )
@@ -10,99 +10,13 @@
 
 #show link: it => underline(it, stroke: 0.25pt)
 
-#let panel_template(
-  content,
-  fill: emph_gray,
-  inset: 8pt,
-  stroke: none,
-  clip: false,
-) = block(
-  content,
-  fill: fill,
-  inset: inset,
-  stroke: stroke,
-  height: 100%,
-  width: 100%,
-  radius: 10pt,
-  clip: clip,
-)
-
-#let floor_panel_template(
-  content,
-  fill: none,
-) = block(
-  // height: 100%,
-  width: 100%,
-  inset: 8pt,
-  outset: 2pt,
-  radius: 6pt,
-  fill: fill,
-)[
-  #show heading.where(level: 1): it => block(
-    pamph_l_h1_bar(it.body),
-  )
-  #show heading.where(level: 2): it => block(
-    pamph_l_h1(it.body, size: 13pt),
-    above: 1.0em,
-    below: 0.75em,
-  )
-  #set par(spacing: 0.90em)
-  #content
-]
-
-#let floor_desc_num(it) = text(
-  it,
-  size: 12pt,
-  font: "Archivo",
-  stretch: 75%,
-  weight: 500,
-  number-width: "tabular",
-)
-#let floor_desc(die1, count1, die2, count2, content) = grid(
-  columns: (auto, 1fr),
-  row-gutter: 2pt,
-  column-gutter: 4pt,
-  align: left + horizon,
-  grid(
-    columns: 2,
-    row-gutter: 8pt,
-    column-gutter: 3pt,
-    die1, count1,
-    die2, count2,
-  ),
-  content,
-)
-
-#let pamph_grid(
-  ..children,
-  columns: (auto, 1fr) * 2,
-  column-gutter: 4pt,
-  inset: (x, y) => if y == 0 {
-    (bottom: 6pt)
-  } else if y == 1 {
-    (y: 6pt)
-  } else {
-    (top: 6pt)
-  },
-  align: left + horizon,
-) = {
-  set text(font: "Charter", size: 8pt, hyphenate: false, tracking: 0.005em)
-  set par(justify: false, leading: 0.50em)
-  grid(
-    ..children,
-    columns: columns,
-    column-gutter: column-gutter,
-    inset: inset,
-    align: align,
-  )
-}
-
 #let panel_1 = panel_template(fill: dd_grey, clip: true)[
   #block(
     width: 100%,
     inset: (x: 12pt, top: 12pt),
   )[
-    // cool background gradient
+    // background radial gradient
+    // TODO: replace with a cool SVG or something, graphic design is hard
     #place(
       horizon + center,
       dy: -28pt,
@@ -132,13 +46,12 @@
       move(
         dx: dx,
         box(
-          fill: white, // none,
+          fill: white,
           inset: 3pt,
           radius: 2pt,
           text(
             upper(content),
             font: "Archivo",
-            // fill: luma(100%, 0%),
             size: 10pt,
             weight: 500,
             stretch: 75%,
@@ -182,9 +95,12 @@
 
     #place(
       bottom + right,
-      // dy: -36pt,
       dx: 16pt,
-      image("FIST_compatibility_mark_alpha_white.png", width: 96pt, alt: "Compatible with FIST"),
+      image(
+        "FIST_compatibility_mark_alpha_white.png",
+        width: 96pt,
+        alt: "Compatible with FIST",
+      ),
     )
   ]
 
@@ -332,7 +248,6 @@
   fill: none,
   inset: (x: 8pt, bottom: 8pt, top: 2pt),
 )[
-  // #show "FIST": set text(font: "Archivo", weight: 300)
   = Floor plan generation
 
   The Ideaspace is visualized as a series of floors. Decide the number of floors until vital intel relating to a member of FIST's Roles is found. Use the presented floor order or choose another (like D3+floor number).
@@ -365,7 +280,9 @@
         d6_maker(16, fill: none, paint: white),
       ),
     ),
-    text(hyphenate: false)[To generate a floor, roll its dice and gather them into a 3 by 3 grid, like the one on the left. The floor describes the theme and contents of each room, and the locations of the entrance and exit stairs. Adjacent rooms are connected via doors.],
+    text(
+      hyphenate: false,
+    )[To generate a floor, roll its dice and gather them into a 3 by 3 grid, like the one on the left. The floor describes the theme and contents of each room, and the locations of the entrance and exit stairs. Adjacent rooms are connected via doors.],
   )
 
   == Contents of rooms
@@ -378,7 +295,9 @@
 
   #box(stack(dir: ltr, spacing: 4pt, d6_mini(1), d6_mini(2), d6_mini(3))) *Minor rooms* have a _4-in-6_ chance of containing a _common item_ (#link("https://claymorerpgs.itch.io/fist")[_FIST: Ultra Edition_], pg. 85). These are GUI wrappers over an appropriate utility program.
 
-  #block(below: 0.60em)[#box(stack(dir: ltr, spacing: 4pt, d6_mini(4), d6_mini(5), d6_mini(6))) *Major rooms* contain an item. Choose or roll:]
+  #block(
+    below: 0.60em,
+  )[#box(stack(dir: ltr, spacing: 4pt, d6_mini(4), d6_mini(5), d6_mini(6))) *Major rooms* contain an item. Choose or roll:]
 
   #pamph_grid(
     columns: (auto, 1fr) * 3,
@@ -430,7 +349,9 @@
     grid.cell(
       colspan: 4,
       inset: (top: 2pt),
-      par(justify: true)[If a room would be cut off due to negative space, replace a negative space die with a #d6_mini(33, size: 5.25pt, outset: 0.25pt) corridor so all rooms are reachable.],
+      par(
+        justify: true,
+      )[If a room would be cut off due to negative space, replace a negative space die with a #d6_mini(33, size: 5.25pt, outset: 0.25pt) corridor so all rooms are reachable.],
     ),
   )
 
@@ -635,7 +556,6 @@
       d6_maker(12),
       [Physics debug room with a basketball and hoop. Encounter wants a game.],
       d6_maker(5),
-      // [Documentation library. Reams of source code listings nobody has read.],
       [Global thermonuclear war simulation room. Neural nets battle.],
       grid.hline(stroke: 0.5pt),
       d6_maker(13),
@@ -680,8 +600,7 @@
 #set page(
   paper: "us-letter",
   flipped: true,
-  margin: 12pt, // 12pt,
-  // background: rect(fill: dd_grey, width: 100%, height: 100%),
+  margin: 12pt,
 )
 
 #let panel_holder(..panels) = grid(
@@ -690,16 +609,11 @@
   ..panels
 )
 
-// actually set up the page, assemble for printing or screen viewing
+// actually set up the page, assemble for screen viewing
+// see pamphlet-print.typ and pamphlet-singles.typ for other layouts
 
-// TODO: make a singles version too
-
-// print version
-// #panel_holder(panel_3, panel_2, panel_1)
-// #pagebreak()
-// #panel_holder(panel_4, panel_5, panel_6)
-
-// screen version
 #panel_holder(panel_1, panel_2, panel_3)
+
 #pagebreak()
+
 #panel_holder(panel_4, panel_5, panel_6)

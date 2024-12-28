@@ -89,11 +89,13 @@
         grid.cell(
           x: x,
           y: y,
-          circle(fill: if number < 20 {
-            paint
-          } else {
-            fill
-          }),
+          circle(
+            fill: if number < 20 {
+              paint
+            } else {
+              fill
+            },
+          ),
         ),
       )
     }
@@ -114,108 +116,6 @@
   radius: radius,
   inset: inset,
   outset: outset,
-)
-
-// Creates a D6 based on the incoming integer.
-// Die style changes based on 10's digit:
-// - 0X: light, normal.
-// - 1X: light, rotated 90 degrees
-// - 2X: dark, normal
-// - 3X: dark, rotated 90 degrees
-#let dicier_maker(
-  x,
-  size: 24pt,
-  fill: black,
-  dark: false,
-  top-edge: "bounds",
-  bottom-edge: "bounds",
-) = text(
-  str(calc.rem(x, 10)),
-  font: if (x >= 20 and not dark) or (x < 20 and dark) {
-    "Dicier Round-Dark"
-  } else {
-    "Dicier Round"
-  },
-  weight: 300,
-  features: if calc.odd(int(x / 10)) {
-    ("cv16": 1, "cv19": 1, "cv20": 1)
-  } else {
-    ()
-  },
-  size: size,
-  fill: fill,
-  top-edge: top-edge,
-  bottom-edge: bottom-edge,
-)
-
-#let dicier_white(
-  it,
-  size: 24pt,
-  fill: black,
-  top-edge: "bounds",
-  bottom-edge: "bounds",
-) = box(
-  dicier_maker(
-    it,
-    size: size,
-    top-edge: top-edge,
-    bottom-edge: bottom-edge,
-    fill: fill,
-  ),
-  fill: white,
-  radius: 2pt,
-)
-
-#let dicier_mini(it, size: 7.75pt, fill: black) = dicier_maker(
-  it,
-  size: size,
-  fill: fill,
-  top-edge: "cap-height",
-  bottom-edge: "baseline",
-)
-
-#let dicier_mini_white(it, size: 7.75pt, fill: black) = dicier_white(
-  it,
-  size: size,
-  fill: fill,
-  top-edge: "cap-height",
-  bottom-edge: "baseline",
-)
-
-#let dicier_gray_white(
-  it,
-  size: 24pt,
-) = dicier_white(it, size: size, fill: dd_grey)
-
-
-// Creates a 3x3 grid of D6's from the input array of integers.
-// Dice style changes based on 10's digit:
-// - 0X: light, normal.
-// - 1X: light, rotated 90 degrees
-// - 2X: dark, normal
-// - 3X: dark, rotated 90 degrees
-#let dicier_light(arr, columns: 3, gutter: 4pt, size: 24pt) = grid(
-  columns: columns,
-  gutter: gutter,
-  ..arr.map(x => dicier_maker(x, size: size)),
-)
-
-// Creates a 3x3 grid of D6's from the input array of integers.
-// Text is white for use on dark backgrounds.
-// Dice style changes based on 10's digit:
-// - 0X: light, normal.
-// - 1X: light, rotated 90 degrees
-// - 2X: dark, normal
-// - 3X: dark, rotated 90 degrees
-#let dicier_dark(arr, columns: 3, gutter: 4pt, size: 24pt) = grid(
-  columns: columns,
-  gutter: gutter,
-  ..arr.map(x => dicier_maker(
-    x,
-    size: size,
-    fill: white,
-    dark: true,
-  )),
 )
 
 // layout
@@ -437,7 +337,7 @@
   width: width,
 )
 
-// pamphlet stuff
+// pamphlet typography
 
 #let pamph_l_h1(
   it,
@@ -525,9 +425,7 @@
   fill: dd_grey,
   width: 100%,
   inset: (x: 4pt, y: 6pt),
-  // outset: (x: 2pt),
   radius: 2pt,
-  // above: 0pt,
 )
 
 #let pamph_l_h2_bar(content) = block(
@@ -555,12 +453,9 @@
     justify: true,
     leading: 0.65em,
     // spacing: 0.65em + 0.60em,
-    // first-line-indent: 1.2em,
   )
   #set text(
     hyphenate: true,
-    // font: "New Computer Modern",
-    // font: "Latin Modern Sans 9",
     font: "Charter",
     size: 9.5pt,
     number-width: "proportional",
@@ -589,6 +484,93 @@
   )
   #content
 ]
+
+// pamphlet layout
+
+#let panel_template(
+  content,
+  fill: emph_gray,
+  inset: 8pt,
+  stroke: none,
+  clip: false,
+) = block(
+  content,
+  fill: fill,
+  inset: inset,
+  stroke: stroke,
+  height: 100%,
+  width: 100%,
+  radius: 10pt,
+  clip: clip,
+)
+
+#let floor_panel_template(
+  content,
+  fill: none,
+) = block(
+  width: 100%,
+  inset: 8pt,
+  outset: 2pt,
+  radius: 6pt,
+  fill: fill,
+)[
+  #show heading.where(level: 1): it => block(pamph_l_h1_bar(it.body))
+  #show heading.where(level: 2): it => block(
+    pamph_l_h1(it.body, size: 13pt),
+    above: 1.0em,
+    below: 0.75em,
+  )
+  #set par(spacing: 0.90em)
+  #content
+]
+
+#let floor_desc_num(it) = text(
+  it,
+  size: 12pt,
+  font: "Archivo",
+  stretch: 75%,
+  weight: 500,
+  number-width: "tabular",
+)
+
+#let floor_desc(die1, count1, die2, count2, content) = grid(
+  columns: (auto, 1fr),
+  row-gutter: 2pt,
+  column-gutter: 4pt,
+  align: left + horizon,
+  grid(
+    columns: 2,
+    row-gutter: 8pt,
+    column-gutter: 3pt,
+    die1, count1,
+    die2, count2,
+  ),
+  content,
+)
+
+#let pamph_grid(
+  ..children,
+  columns: (auto, 1fr) * 2,
+  column-gutter: 4pt,
+  inset: (x, y) => if y == 0 {
+    (bottom: 6pt)
+  } else if y == 1 {
+    (y: 6pt)
+  } else {
+    (top: 6pt)
+  },
+  align: left + horizon,
+) = {
+  set text(font: "Charter", size: 8pt, hyphenate: false, tracking: 0.005em)
+  set par(justify: false, leading: 0.50em)
+  grid(
+    ..children,
+    columns: columns,
+    column-gutter: column-gutter,
+    inset: inset,
+    align: align,
+  )
+}
 
 // patterns from pattern monster
 

@@ -1,18 +1,23 @@
 // orbital blues
 
 #set document(
-  title: "Orbital Blues Character char_sheet",
+  title: "Orbital Blues Character Sheet Demo",
   author: "Window Dump",
   keywords: ("orbital blues", "sad", "space cowboy", "osr"),
 )
 #import "flexoki.typ": *
 
-#let sheet_black = flexoki-black
-// #let sheet_bg = flexoki-paper
-#let sheet_bg = yellow-50
+#let sheet_bg = state("bg", yellow-50)
+// #let sheet_bg = state("bg", flexoki-paper)
+// #let sheet_bg = state("bg", white)
 
-// #let sheet_black = black
-// #let sheet_bg = auto
+#let sheet_colors_fg = state("fg", flexoki-black)
+// #let sheet_colors_fg = state("fg", black)
+
+// todo: make this controlled by state somehow
+// #let sheet_black = flexoki-black
+#let sheet_black = black
+// #let sheet_black = red-400
 
 // global gutter value
 #let glob_gutter = 4pt
@@ -41,11 +46,11 @@
   )
 }
 
-#let sheet_template(doc) = {
-  set page(fill: sheet_bg)
+#let sheet_template(doc) = context {
+  set page(fill: sheet_bg.get())
   set text(
     font: "League Spartan",
-    fill: sheet_black,
+    fill: sheet_colors_fg.get(),
     size: 12pt,
     // stylistic-set: 1, // double story a
   )
@@ -110,21 +115,21 @@
   show heading.where(level: 1): it => text(
     heading_text(it.body.text, spacing: 0.12em),
     font: "Montserrat",
-    fill: sheet_bg,
+    fill: sheet_bg.get(),
     size: 13pt,
     weight: 700,
   )
   show heading.where(level: 2): it => text(
     heading_text(it.body.text, spacing: 0.12em),
     font: "Montserrat",
-    fill: sheet_bg,
+    fill: sheet_bg.get(),
     size: 12pt,
     weight: 600,
   )
-  block(
+  context block(
     align(center, it),
     below: 6pt,
-    fill: sheet_black,
+    fill: sheet_colors_fg.get(),
     inset: glob_gutter,
     width: 100%,
   )
@@ -195,7 +200,7 @@
     let max_hearts = if type(char.grit) == "integer" { char.grit + 8 } else {
       11
     }
-    block(
+    context block(
       stroke: sheet_line_solid,
       width: 12pt,
       height: 12pt,
@@ -331,7 +336,7 @@
 // takes an argument so you can fill it in digitally
 #let char_sheet(
   char,
-) = grid(
+) = context grid(
   columns: (3fr, 5fr, 4fr),
   rows: (auto, auto, auto, auto, auto, auto, 1fr),
   column-gutter: glob_gutter * 4,

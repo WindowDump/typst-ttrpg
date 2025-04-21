@@ -11,6 +11,8 @@ typst compile --font-path ./fonts -f png fist-handbook.typ fist-handbook-{n}.png
 
 See `typst help compile` for a full command reference.
 
+Some sheets might not have fonts included due to laziness / file size concerns. They're all FLOSS, look for 'em online. Remember, Typst doesn't support variable fonts at the moment.
+
 # [FIST Operative Handbook](fist-handbook.typ)
 Zine-style booklet for [FIST](https://claymorerpgs.itch.io/fist), a paranormal mercenary TTRPG. Contains a character sheet, rules reference, and character creation instructions. A minimal sheet with a few cute touches.
 
@@ -27,3 +29,8 @@ FIST generative dungeon set in the proto-internet, inspired by what people thoug
 
 # [Longshot City Character Sheet](longshot-city.typ)
 New character sheet for Longshot City, fits on US letter paper. Also includes a system reference sheet with damage lookup tables.
+
+# [Orbital Blues](orbital-blues-char.typ)
+Horizontal character sheet for [Orbital Blues](https://soulmuppetpublishing.itch.io/orbital-blues), a lo-fi space western roleplaying game about sad space cowboys. Can be set up as a printable blank version, or filled-in for pregens or campaign tracking.
+
+Uses colors from [Flexoki](https://github.com/kepano/flexoki).

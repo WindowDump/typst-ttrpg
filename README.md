@@ -28,9 +28,9 @@ Runic magic system based on the system in Ultima, designed to drop into _Remix_ 
 FIST generative dungeon set in the proto-internet, inspired by what people thought computers were like in the 80's and what mainframe computers actually were like. Entry for [FIST: JAM OPS V](https://itch.io/jam/fist-jam-ops-v).
 
 # [Longshot City Character Sheet](longshot-city.typ)
-New character sheet for Longshot City, fits on US letter paper. Also includes a system reference sheet with damage lookup tables.
+Horizontal character sheet for [Longshot City](https://melsonian-arts-council.itch.io/longshot-city), fits on US letter paper. Also includes a system reference sheet with damage lookup tables.
 
 # [Orbital Blues](orbital-blues-char.typ)
-Horizontal character sheet for [Orbital Blues](https://soulmuppetpublishing.itch.io/orbital-blues), a lo-fi space western roleplaying game about sad space cowboys. Can be set up as a printable blank version, or filled-in for pregens or campaign tracking.
+Horizontal character sheet for [Orbital Blues](https://soulmuppetpublishing.itch.io/orbital-blues), a lo-fi space western roleplaying game about sad space cowboys. Can be set up as a printable blank version, or filled-in for pregens or campaign tracking. Monochromatic: you can pick both colors!
 
 Uses colors from [Flexoki](https://github.com/kepano/flexoki).

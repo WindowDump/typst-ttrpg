@@ -3,31 +3,18 @@
 #set document(
   title: "Orbital Blues Character Sheet Demo",
   author: "Window Dump",
-  keywords: ("orbital blues", "sad", "space cowboy", "osr"),
+  keywords: ("orbital blues", "sad", "space cowboy", "rpg"),
 )
 #import "flexoki.typ": *
 
-#let sheet_bg = state("bg", yellow-50)
-// #let sheet_bg = state("bg", flexoki-paper)
-// #let sheet_bg = state("bg", white)
-
-#let sheet_colors_fg = state("fg", flexoki-black)
-// #let sheet_colors_fg = state("fg", black)
-
-// todo: make this controlled by state somehow
-// #let sheet_black = flexoki-black
-#let sheet_black = black
-// #let sheet_black = red-400
+// placeholder default values
+#let sheet_black = flexoki-black
+#let sheet_white = yellow-50
 
 // global gutter value
 #let glob_gutter = 4pt
 
-#set page(
-  paper: "us-letter",
-  flipped: true,
-  margin: 0.5in,
-)
-
+// hack for montserrat having one stylistic set
 #let heading_text(it, spacing: 0pt) = {
   stack(
     dir: ltr,
@@ -46,13 +33,18 @@
   )
 }
 
-#let sheet_template(doc) = context {
-  set page(fill: sheet_bg.get())
+// Sheet will update lines based on text fill, which this template sets.
+#let char_sheet_template(doc, fg: sheet_black, bg: sheet_white) = {
+  set page(
+    fill: bg,
+    paper: "us-letter",
+    flipped: true,
+    margin: 0.5in,
+  )
   set text(
     font: "League Spartan",
-    fill: sheet_colors_fg.get(),
+    fill: fg,
     size: 12pt,
-    // stylistic-set: 1, // double story a
   )
   set strong(delta: 200)
   show emph: it => text(it, weight: 500)
@@ -73,28 +65,27 @@
   doc
 }
 
-#show: sheet_template
+#show: char_sheet_template
 
-#let sheet_line_dotted = (
-  thickness: 1.00pt,
-  paint: sheet_black,
-  dash: "dotted",
-  join: "round",
-  // cap: "round",
-)
-
-#let sheet_line_solid = (
+#let sheet_line_dotted(fill: sheet_black) = (
   thickness: 1pt,
-  paint: sheet_black,
+  paint: fill,
+  dash: (0pt, 3pt),
+  cap: "round",
 )
 
-#let sheet_line_thick = (
+#let sheet_line_solid(fill: sheet_black) = (
+  thickness: 1pt,
+  paint: fill,
+)
+
+#let sheet_line_thick(fill: sheet_black) = (
   thickness: glob_gutter / 2,
-  paint: sheet_black,
+  paint: fill,
 )
 
-#let sheet_line_placeholder = pad(
-  line(stroke: sheet_line_dotted, length: 20pt),
+#let sheet_line_placeholder = context pad(
+  line(stroke: sheet_line_dotted(fill: text.fill), length: 20pt),
   top: 12pt,
 )
 
@@ -111,25 +102,25 @@
   size: 18pt,
 )
 
-#let thick_heading(it) = {
+#let thick_heading(it) = context {
   show heading.where(level: 1): it => text(
     heading_text(it.body.text, spacing: 0.12em),
     font: "Montserrat",
-    fill: sheet_bg.get(),
+    fill: if type(page.fill) != "auto" { page.fill } else { white },
     size: 13pt,
     weight: 700,
   )
   show heading.where(level: 2): it => text(
     heading_text(it.body.text, spacing: 0.12em),
     font: "Montserrat",
-    fill: sheet_bg.get(),
+    fill: if type(page.fill) != "auto" { page.fill } else { white },
     size: 12pt,
     weight: 600,
   )
-  context block(
+  block(
     align(center, it),
     below: 6pt,
-    fill: sheet_colors_fg.get(),
+    fill: text.fill,
     inset: glob_gutter,
     width: 100%,
   )
@@ -143,7 +134,7 @@
     spacing: 1fr,
     ..for l in "Orbital Blues" {
       l = upper(l)
-      (text(l, font: "Montserrat", size: 18pt, weight: 700),)
+      (text(l, font: "Montserrat", size: 16pt, weight: 900),)
     },
   ),
   stack(
@@ -168,7 +159,7 @@
   colspan: colspan,
   inset: (x: glob_gutter, bottom: glob_gutter * 3, top: glob_gutter * 2),
   align: center + bottom,
-  stroke: (bottom: sheet_line_thick),
+  stroke: (bottom: sheet_line_thick(fill: text.fill)),
 )
 
 #let char_profile(char) = grid(
@@ -178,7 +169,7 @@
   inset: ((y: glob_gutter), (y: glob_gutter, x: glob_gutter)),
   align: bottom,
   stroke: (x, y) => {
-    if calc.odd(x) { (bottom: sheet_line_dotted) }
+    if calc.odd(x) { (bottom: sheet_line_dotted(fill: text.fill)) }
   },
   sheet_label[Player], grid.cell(colspan: 3, char.player),
   sheet_label[Name], grid.cell(colspan: 3, char.character),
@@ -191,31 +182,31 @@
 #let char_stats_heart_boxes(char) = stack(
   dir: ltr,
   spacing: glob_gutter,
-  ..range(if type(char.grit) == "integer" { char.grit + 8 } else {
+  ..range(if type(char.grit) == int { char.grit + 8 } else {
     11
   }).map(heart => {
-    let filled = if type(char.heart) == "integer" { char.heart + heart } else {
+    let filled = if type(char.heart) == int { char.heart + heart } else {
       11
     }
-    let max_hearts = if type(char.grit) == "integer" { char.grit + 8 } else {
+    let max_hearts = if type(char.grit) == int { char.grit + 8 } else {
       11
     }
-    context block(
-      stroke: sheet_line_solid,
+    block(
+      stroke: sheet_line_solid(fill: text.fill),
       width: 12pt,
       height: 12pt,
       {
         if filled < max_hearts {
           place(
             line(
-              stroke: sheet_line_solid,
+              stroke: sheet_line_solid(fill: text.fill),
               start: (15%, 15%),
               end: (85%, 85%),
             ),
           )
           place(
             line(
-              stroke: sheet_line_solid,
+              stroke: sheet_line_solid(fill: text.fill),
               start: (15%, 85%),
               end: (85%, 15%),
             ),
@@ -225,7 +216,7 @@
     )
   }),
 )
-#let str_if_int(it) = if type(it) == "integer" { str(it) } else { it }
+#let str_if_int(it) = if type(it) == int { str(it) } else { it }
 
 #let char_stats(char) = {
   grid(
@@ -247,7 +238,7 @@
         (
           pad(y: 2pt, char_stats_heart_boxes(char)),
           sheet_label[Heart],
-          if type(char.blues) == "integer" {
+          if type(char.blues) == int {
             big_label(str(char.blues))
           } else {
             sheet_line_placeholder
@@ -257,12 +248,12 @@
       } else {
         (
           big_label[
-            #if type(char.heart) == "integer" { str(char.heart) } else { sheet_line_placeholder } /
-            #if type(char.grit) == "integer" { str(8 + char.grit) } else {
+            #if type(char.heart) == int { str(char.heart) } else { sheet_line_placeholder } /
+            #if type(char.grit) == int { str(8 + char.grit) } else {
               sheet_line_placeholder
             }
           ],
-          if type(char.blues) == "integer" { big_label(str(char.blues)) } else {
+          if type(char.blues) == int { big_label(str(char.blues)) } else {
             sheet_line_placeholder
           },
           sheet_label[Heart],
@@ -286,8 +277,8 @@
     },
   ),
   stroke: (x, y) => (
-    right: if x == 0 { sheet_line_solid },
-    top: if y > 0 { sheet_line_dotted },
+    right: if x == 0 { sheet_line_solid(fill: text.fill) },
+    top: if y > 0 { sheet_line_dotted(fill: text.fill) },
   ),
   align: (x, y) => if y == 0 { center } else { left },
   sheet_label[Name], sheet_label[Details],
@@ -299,7 +290,7 @@
 #let mug_shot(char) = rect(
   width: 100%,
   height: 102pt,
-  stroke: sheet_line_solid,
+  stroke: sheet_line_solid(fill: text.fill),
   inset: (y: glob_gutter * 2),
   {
     grid(
@@ -308,7 +299,7 @@
       align: center + horizon,
       inset: (x: glob_gutter),
       stroke: (x, y) => (
-        if x == 0 { (right: sheet_line_dotted) } else { none }
+        if x == 0 { (right: sheet_line_dotted(fill: text.fill)) } else { none }
       ),
       if "photo_left" in char {
         char.photo_left
@@ -324,7 +315,7 @@
     place(
       center + bottom,
       dy: glob_gutter * 1.5,
-      context box(
+      box(
         fill: if type(page.fill) != "auto" { page.fill } else { white },
         inset: (y: glob_gutter),
         sheet_label[(Mug Shot)],
@@ -347,13 +338,13 @@
     inset: (
       bottom: glob_gutter * 2,
     ),
-    stroke: (bottom: sheet_line_thick),
+    stroke: (bottom: sheet_line_thick(fill: text.fill)),
   ),
   sheet_subheading("Troubles", colspan: 1),
   sheet_subheading("Gambits", colspan: 1),
   grid.cell(
     rowspan: 3,
-    // stroke: (bottom: sheet_line_dotted),
+    // stroke: (bottom: sheet_line_dotted(fill: text.fill)),
     inset: (top: glob_gutter),
     grid(
       row-gutter: (glob_gutter * 1, glob_gutter * 4),
@@ -371,8 +362,8 @@
     sheet_subheading("Equipment & Mementos"),
     colspan: 2,
     stroke: (
-      top: sheet_line_dotted,
-      bottom: sheet_line_thick,
+      top: sheet_line_dotted(fill: text.fill),
+      bottom: sheet_line_thick(fill: text.fill),
     ),
     inset: (top: glob_gutter * 1),
   ),
@@ -501,7 +492,7 @@
 #char_sheet(placeholder_char)
 
 // sheet for the crew's all-important ship
-#let ship_sheet(ship) = grid(
+#let ship_sheet(ship) = context grid(
   columns: (3fr, 6fr),
   rows: (auto, 1fr),
   column-gutter: glob_gutter * 4,

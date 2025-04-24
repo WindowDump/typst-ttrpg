@@ -1,20 +1,12 @@
 #set document(
   title: "Orbital Blues Character Sheet (Print Friendly)",
   author: "Window Dump",
-  keywords: ("orbital blues", "sad", "space cowboy", "osr"),
+  keywords: ("orbital blues", "sad", "space cowboy", "rpg"),
 )
-#import "flexoki.typ": *
 #import "orbital-blues-char.typ": *
 
-#set page(
-  paper: "us-letter",
-  flipped: true,
-  margin: 0.5in,
-)
-
-#sheet_colors_fg.update(black) // does not update line colors rn
-#sheet_bg.update(white)
-#show: sheet_template
+// pure black and white for ink saving
+#show: it => char_sheet_template(it, fg: black, bg: white)
 
 #char_sheet((
   photo_left: [],

@@ -18,7 +18,7 @@
 #let heading_text(it, spacing: 0pt) = {
   stack(
     dir: ltr,
-    ..for l in it {
+    ..for l in str(it) {
       l = upper(l)
       (
         text(
@@ -49,14 +49,30 @@
   set strong(delta: 200)
   show emph: it => text(it, weight: 500)
 
+  let to-string(it) = {
+    if type(it) == str {
+      it
+    } else if type(it) != content {
+      str(it)
+    } else if it.has("text") {
+      it.text
+    } else if it.has("children") {
+      it.children.map(to-string).join()
+    } else if it.has("body") {
+      to-string(it.body)
+    } else if it == [ ] {
+      " "
+    }
+  }
+
   show heading.where(level: 1): it => text(
-    heading_text(it.body.text, spacing: 0.10em),
+    heading_text(to-string(it.body), spacing: 0.10em),
     font: "Montserrat",
     size: 13pt,
     weight: 600,
   )
   show heading.where(level: 2): it => text(
-    heading_text(it.body.text, spacing: 0.10em),
+    heading_text(to-string(it.body), spacing: 0.10em),
     font: "Montserrat",
     size: 12pt,
     weight: 500,
@@ -422,8 +438,8 @@
   sector: [Gamma],
   ship: [Elite Crew],
   muscle: 0,
-  grit: 3,
-  savvy: 2,
+  grit: 2,
+  savvy: 1,
   heart: 7,
   use_heart_boxes: true,
   blues: 0,

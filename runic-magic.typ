@@ -106,33 +106,30 @@
   columns: (1fr,) * 6,
   align: center + horizon,
   stroke: 0.5pt,
-  ..runes.map(rune => grid.cell(
-    inset: (y: 14pt),
-    grid(
-      rows: 3,
-      row-gutter: 10pt,
-      text(
-        rune.name,
-        font: "ElstobD 8pt",
-        size: 9pt,
-        weight: 500,
-        features: ("smcp",),
-        tracking: 0.08em,
-      ),
-      text(
-        rune.glyph,
-        font: "ElstobD 18pt",
-        size: 24pt,
-        weight: 600,
-        stylistic-set: 12,
-      ),
-      text(
-        rune.meaning,
-        font: "ElstobD 10pt",
-        size: 10pt,
-        weight: 500,
-      )
+  inset: (y: 14pt),
+  ..runes.map(rune => grid(
+    row-gutter: 10pt,
+    text(
+      rune.name,
+      font: "ElstobD 8pt",
+      size: 9pt,
+      weight: 500,
+      features: ("smcp",),
+      tracking: 0.08em,
     ),
+    text(
+      rune.glyph,
+      font: "ElstobD 18pt",
+      size: 24pt,
+      weight: 600,
+      stylistic-set: 12,
+    ),
+    text(
+      rune.meaning,
+      font: "ElstobD 10pt",
+      size: 10pt,
+      weight: 500,
+    )
   )),
 )
 

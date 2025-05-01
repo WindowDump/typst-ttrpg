@@ -132,20 +132,24 @@
 
   The year is 198X. Higher learning institutions and private defense contractors have linked mainframe computers via the *ARPANET Project*. The stated goal is sharing of resources and communication. A (likely intentional) bug in the encryption scheme allows easy access to any system. You recently exploited this with the help of *JRH*, a graduate student in Cambridge.
 
-  A tool developed in Palo Alto, CA by a *CYCLOPS* proxy company allows beaming of human consciousness into a virtual office environment named the *Ideaspace*. Computer labs have installed these beaming chairs for development or demonstration, and some are used every day. Publicly, there are no known side effects...
+  A tool developed in Palo Alto, CA by a *CYCLOPS* proxy company allows beaming of human consciousness into a virtual office environment named the *Ideaspace*, a digital skyscraper visualized as an endless series of floors. State of the art technology provides high-resolution 2-bit monochromatic graphics. There is a lot of dithering, but text looks really good. Users can conduct common tasks like document editing, programming, or system administration. They can even access any ARPANET server.
 
-  === Inside the Ideaspace
-
-  State of the art technology provides high-res 2-bit monochromatic graphics. There is a lot of dithering, but text looks really good. Users can conduct common tasks like document editing, programming, or system administration. They can even access any ARPANET server.
+  Computer labs have installed these beaming chairs for development or demonstration, and some are used every day. Publicly, there are no known side effects...
 ]
 
 #let panel_2 = panel_template(
   fill: none,
   inset: (top: 8pt, x: 8pt, bottom: 4pt),
 )[
+  = Users & Daemons
+
+  *Users* represent a person's Ideaspace session, full-beam or otherwise: gray capsules in a roughly humanoid shape. JRH's hacks disguise you as one of them, but not all are fooled - you're _rogue_, not authorized to be there.
+
+  *Daemons* represent a system process, (re)generated as needed. Common Daemons are "cute" to discourage attacks from new Users: about three feet tall, rotund, with conical horns. They love *TOKENS*, eating them like candy or cigarettes, and perform their only programmed task (save a file, message a User, fetch news, etc.) in exchange for one. Other Daemons are modeled after fantasy creatures and have more complex programming.
+
   = Floor transmission <floor-transmission>
 
-  You're breaching the ARPANET with a hacked up tech demo -- don't expect to go unnoticed with all your bits intact. Roll *1D6* to determine what happens when FIST moves to a new floor, consequences apply to everyone:
+  FIST is breaching the Ideaspace with a hacked up tech demo -- don't expect to go unnoticed with all your bits intact. Transmitting between floors can cause *DATA LOSS* -- *PARITY BITS* can be found to correct errors. When FIST transmits to a new floor, roll *1D6* for complications:
 
   + *Data corruption.* Consume a PARITY BIT or gain a level of DATA LOSS (see below).
   + *Noise.* Consume a PARITY BIT or take 1 DAMAGE.
@@ -156,28 +160,22 @@
 
   At 3 levels of *DATA LOSS* an operative is experiencing *Achiba Syndrome* - their mind treats the Ideaspace as real and cannot return to their original body. A separate rescue mission is required if this is undesired.
 
-  = Users & Daemons
-
-  *Users* represent a person's Ideaspace session, full-beam or otherwise: gray capsules in a roughly humanoid shape. JRH's hacks disguise you as one of them, but not all are fooled - you're _rogue_, not authorized to be there.
-
-  *Daemons* represent a system process, (re)generated as needed. Common Daemons are "cute" to discourage attacks from new Users: about three feet tall, rotund, with conical horns. They love *TOKENS*, eating them like candy or cigarettes, and perform their only programmed task (save a file, message a User, fetch news, etc.) in exchange for one. Other Daemons are modeled after fantasy creatures and have complex programming.
-
   == Inspiration & Touchstones
 
-  #text(size: 8pt, tracking: 0.005em)[
-    - *Procedures & Generation:* #link("https://claymorerpgs.itch.io/hazard-function")[_HAZARD FUNCTION_], #link("https://goblinpunch.blogspot.com/2023/04/the-underclock-fixing-random-encounter.html")[The Under-clock], #link("https://awkwardturtle.itch.io/wallet-dungeons")[_Wallet Dungeons_], #link("https://www.fivetorchesdeep.com")[_Five Torches Deep_], #link("https://www.hedonic.ink/simple-diedrop-dungeon/")[die-drop dungeons]
-    - *Games:* #link("https://www.roguebasin.com/index.php/Rogue")[_Rogue_], #link("https://drl.chaosforge.org")[_DRL_], _Coded Arms_, _SMT NINE_
-    - *Books:* _Hackers: Heroes of the Computer Revolution_
-    - *Sites:* #link("https://github.com/agiacalone/jargonfile/blob/main/historical/jarg1-88-10-04.txt")[The Hacker Jargon File], #link("http://textfiles.com")[TEXTFILES.COM]
-    - *Films:* _TRON_ (1982), _WarGames_ (1983)
+  #set text(size: 8pt, tracking: 0.005em)
 
-    Text & layout by Window Dump, 2024. Written in #link("https://typst.app")[Typst] on a #link("https://github.com/foostan/crkbd/tree/v4.0")[Corne].\
-    Set in #link("https://tug.org/FontCatalogue/cmttfonts.html")[Charter], #link("https://github.com/Omnibus-Type/Archivo")[Archivo], and #link("https://tug.org/FontCatalogue/cmrfonts.html")[Computer Modern Roman Dunhill].\
-    Based on #link("https://claymorerpgs.itch.io/fist")[_FIST: Ultra Edition_] by CLAYMORE RPGs, licensed under\ #link("https://creativecommons.org/licenses/by-sa/4.0/")[CC BY-SA 4.0]: https://creativecommons.org/licenses/by-sa/4.0/.\
-    This document is licensed under #link("https://creativecommons.org/licenses/by-sa/4.0/")[CC BY-SA 4.0].
+  - *Procedures & Generators:* #link("https://claymorerpgs.itch.io/hazard-function")[_HAZARD FUNCTION_], #link("https://goblinpunch.blogspot.com/2023/04/the-underclock-fixing-random-encounter.html")[The Under-clock], #link("https://awkwardturtle.itch.io/wallet-dungeons")[_Wallet Dungeons_], #link("https://www.fivetorchesdeep.com")[_Five Torches Deep_], #link("https://www.hedonic.ink/simple-diedrop-dungeon/")[die-drop dungeons]
+  - *Games:* #link("https://www.roguebasin.com/index.php/Rogue")[_Rogue_], #link("https://drl.chaosforge.org")[_DRL_], _Coded Arms_, _SMT NINE_
+  - *Books:* _Hackers: Heroes of the Computer Revolution_
+  - *Sites:* #link("https://github.com/agiacalone/jargonfile/blob/main/historical/jarg1-88-10-04.txt")[The Hacker Jargon File], #link("http://textfiles.com")[TEXTFILES.COM]
+  - *Films:* _TRON_ (1982), _WarGames_ (1983)
 
-    greetz to the FIST server, the NSR Cauldron, & Dice Exploder.
-  ]
+  Text & layout by Window Dump, 2025. Written in #link("https://typst.app")[Typst] on a #link("https://github.com/foostan/crkbd/tree/v4.0")[Corne].\
+  // Set in #link("https://practicaltypography.com/charter.html")[Charter], #link("https://github.com/Omnibus-Type/Archivo")[Archivo], and #link("https://tug.org/FontCatalogue/cmrfonts.html")[Computer Modern Roman Dunhill].\
+  Based on #link("https://claymorerpgs.itch.io/fist")[_FIST: Ultra Edition_] by CLAYMORE RPGs, licensed under\ #link("https://creativecommons.org/licenses/by-sa/4.0/")[CC BY-SA 4.0]: https://creativecommons.org/licenses/by-sa/4.0/.\
+  This document is licensed under #link("https://creativecommons.org/licenses/by-sa/4.0/")[CC BY-SA 4.0].
+
+  greetz to the FIST server, the NSR Cauldron, and Dice Exploder.
 ]
 
 #let panel_3 = panel_template(
@@ -186,18 +184,18 @@
 )[
   = Encounters <encounters>
 
-  Use the _CYBERCLOCK_ <cyberclock> to determine when FIST encounters a wandering net denizen. It starts at *10* on a new floor. Subtract *1D6* when FIST enters a new room, travels through three visited rooms, or causes notable chaos.\ _At 0 or 1_, foreshadow the next encounter, then set to 1.\ _Below 0_, the encounter occurs. After, set to *10*.\
-  If a denizen's reaction to FIST is not obvious, roll *1D6*:\ #d6_mini(1) hostile, #d6_mini(2) #d6_mini(3) wary, #d6_mini(4) #d6_mini(5) neutral, #d6_mini(6) curious or friendly.
+  Use the _CYBERCLOCK_ <cyberclock> to determine when FIST encounters a wandering net denizen. It starts at *10* on a new floor. Subtract *1D6* when FIST enters a new room, travels through three visited rooms, or causes notable chaos.\ _At 0 or 1_, foreshadow the next encounter, then set to 1.\ _Below 0_, the encounter occurs. After, set to *10*.
 
   #block(below: 1fr)[
-    Roll *2D6* to determine an encounter. The third random encounter is always a *CERBERUS* or *CRO DIAL TONE*.
+    Roll *2D6* to determine an encounter. The third random encounter is always a *CERBERUS* or *CRO DIAL TONE*.\
+    If a denizen's reaction to FIST is not obvious, roll *1D6*:\ #d6_mini(1)~hostile, #d6_mini(2)~#d6_mini(3)~wary, #d6_mini(4)~#d6_mini(5)~neutral, #d6_mini(6)~curious or friendly.
   ] <encounter-table>
 
   #let encounters = (
     [*CERBERUS* (10 HP, 1 ARMOR, 1D6+1 DAMAGE). Three-headed guard dog. Demands a valid TOKEN from each member of FIST, attacks if unsatisfied.],
     [*NAME DRAGON* (8 HP, 1D6 DAMAGE). Greets Users with the message of the day (funny picture) and accounts their name and actions. Wise and curious.],
     [*PHANTOM* (7 HP, 1D6 DAMAGE). A long-lived Daemon spawned by the system. Watches an external connection of some kind - news wire, printer spooler, etc.],
-    [*SERVER DAEMON* (5 HP, 1D6 DAMAGE). Single-minded and determined. Performing a job for a User: #d6_mini(1) mail, #d6_mini(2) #d6_mini(3) save/load file, #d6_mini(4) #d6_mini(5) math, #d6_mini(6) networking],
+    [*SERVER DAEMON* (5 HP, 1D6 DAMAGE). Single-minded and determined. Performing a job for a User: #d6_mini(1)~mail, #d6_mini(2)~#d6_mini(3)~save/load file, #d6_mini(4)~#d6_mini(5)~math, #d6_mini(6)~networking],
     [*D3 DAEMONS* (4 HP, 1D6 DAMAGE). Lurking around, waiting for a task, itching for a TOKEN.],
     [*D6 BUGS* (3 HP, 3 DAMAGE). No matter how hard the programmers try, these things keep showing up.],
     [*D3 USERS* (4 HP, 3 DAMAGE). Low clearance, low familiarity. Often annoying or downright stupid.],
@@ -206,7 +204,7 @@
     [*SYSOP* (8 HP, 1D6+1 DAMAGE). A system operator. Wields a custom GUN.EXE, loves excuses to use it.],
     [
       *CRO DIAL TONE* (15 HP, 1D6+1 DAMAGE).\
-      *DROPPED CALL:* A CYCLOPS analyst sent into the Ideaspace to covertly install monitoring software. They lingered too long and developed Achiba Syndrome. Now designated DIAL TONE, they speak with snippets from system messages & automated phone lines.\
+      *DROPPED CALL:* A CYCLOPS analyst sent into the Ideaspace to covertly install monitoring software. They lingered too long and developed Achiba Syndrome. Now designated DIAL TONE, they speak with snippets from automated phone lines.\
       *NO CARRIER (BOSS MOVE):* Attacks FIST's connection directly. Roll *+TAC*: *10+* you're fine, *7--9* dazed for one round, *6-* gain a level of DATA LOSS.
     ],
   )
@@ -250,10 +248,9 @@
 )[
   = Floor plan generation
 
-  The Ideaspace is visualized as a series of floors. Decide the number of floors until vital intel relating to a member of FIST's Roles is found. Use the presented floor order or choose another (like D3+floor number).
-  Each floor has stairs downwards, but not back up. See #link(<floor-transmission>)[_Floor transmission_] for the risks.
+  The Ideaspace is visualized as a series of floors. Decide the number of floors until vital intel relating to a member of FIST's Roles is found. Use the presented floor order or choose another (like D3+floor number). Each floor has "stairs" that transmit to the next floor, but not back. See #link(<floor-transmission>)[_Floor transmission_] for the risks.
 
-  Gather *12 D6's*. Choose 3 of the same color (i.e., black) to represent _negative space_. Other dice represent _rooms_.
+  Gather *12 D6's*. Choose 3 of the same color to represent #d6_mini(21)~_negative space_. Other dice represent #d6_mini(1)~_rooms_. Themes for floors and their rooms are described on the right. Each floor shows how much of each dice to use, the locations of the entrance and exit, and six room types.
 
   #grid(
     columns: (auto, 1fr),
@@ -266,32 +263,32 @@
       fill: dd_grey,
       grid(
         columns: 3,
-        gutter: 4pt,
-        d6_maker(24, fill: black, dark: white),
-        d6_maker(32, fill: black, dark: white),
-        d6_maker(2, fill: none, paint: white),
+        gutter: 3pt,
+        d6_maker(24, fill: black, dark: white, size: 12pt),
+        d6_maker(32, fill: black, dark: white, size: 12pt),
+        d6_maker(02, fill: none, paint: white, size: 12pt),
 
-        d6_maker(21, fill: black, dark: white),
-        d6_maker(3, fill: none, paint: white),
-        d6_maker(25, fill: black, dark: white),
+        d6_maker(21, fill: black, dark: white, size: 12pt),
+        d6_maker(03, fill: none, paint: white, size: 12pt),
+        d6_maker(25, fill: black, dark: white, size: 12pt),
 
-        d6_maker(26, fill: black, dark: white),
-        d6_maker(33, fill: black, dark: white),
-        d6_maker(16, fill: none, paint: white),
+        d6_maker(26, fill: black, dark: white, size: 12pt),
+        d6_maker(33, fill: black, dark: white, size: 12pt),
+        d6_maker(16, fill: none, paint: white, size: 12pt),
       ),
     ),
     text(
       hyphenate: false,
-    )[To generate a floor, roll its dice and gather them into a 3 by 3 grid, like the one on the left. The floor describes the theme and contents of each room, and the locations of the entrance and exit stairs. Adjacent rooms are connected via doors.],
+    )[To generate a floor, roll its dice and gather them into a 3 by 3 grid, like the one on the left. Each die's number indicates which type of room it is, based on the floor. Adjacent rooms are connected via doors.],
   )
 
-  == Contents of rooms
+  // == Contents of rooms
 
   In addition to the special features of a room:
 
   #box(stack(dir: ltr, spacing: 4pt, d6_mini(2), d6_mini(4), d6_mini(6))) *Even rooms* contain a denizen. Roll on the #link(<encounter-table>)[_encounter table_] to learn who is there when FIST arrives.
 
-  #box(stack(dir: ltr, spacing: 4pt, d6_mini(1), d6_mini(3), d6_mini(5))) *Odd rooms* contain a text file on a disk. Choose or roll: #d6_mini(1) meeting minutes, #d6_mini(2) TPS reports, #d6_mini(3) bad puns,\ #d6_mini(4) documentation, #d6_mini(5) Usenet thread, #d6_mini(6) warez or philez
+  #box(stack(dir: ltr, spacing: 4pt, d6_mini(1), d6_mini(3), d6_mini(5))) *Odd rooms* contain a text file on a disk. Choose or roll: #d6_mini(1)~meeting minutes, #d6_mini(2)~TPS reports, #d6_mini(3)~bad puns,\ #d6_mini(4)~documentation, #d6_mini(5)~Usenet thread, #d6_mini(6)~warez or philez
 
   #box(stack(dir: ltr, spacing: 4pt, d6_mini(1), d6_mini(2), d6_mini(3))) *Minor rooms* have a _4-in-6_ chance of containing a _common item_ (#link("https://claymorerpgs.itch.io/fist")[_FIST: Ultra Edition_], pg. 85). These are GUI wrappers over an appropriate utility program.
 
@@ -330,6 +327,7 @@
     },
     grid.cell(
       colspan: 4,
+      inset: (top: 4pt, bottom: 2pt),
       pamph_l_h2[Negative space (same for all floors)],
     ),
     d6_maker(21),
@@ -351,7 +349,7 @@
       inset: (top: 2pt),
       par(
         justify: true,
-      )[If a room would be cut off due to negative space, replace a negative space die with a #d6_mini(33, size: 5.25pt, outset: 0.25pt) corridor so all rooms are reachable.],
+      )[If a room would be cut off due to negative space, replace a negative space die with a #d6_mini(33, size: 5.25pt, outset: 0.25pt)~corridor so all rooms are reachable.],
     ),
   )
 
@@ -400,8 +398,8 @@
     floor_desc_num[x 6],
     [
       *Decor:* Ultra-modern office, with fake windows displaying views from real skyscrapers.\
-      *Entrance:* _Lowest_ room die. You awake in a brain beaming chair like the one you sat in.\
-      *Exit:* #d6_mini(5) or _highest_ room die. Spiral staircase.
+      *Entrance:* _Lowest_ room die. You awake in a chair, surrounded by tutorial messages.\
+      *Exit:* #d6_mini(5)~or _highest_ room die. Spiral staircase.
     ],
   )
 
@@ -471,7 +469,7 @@
     [
       *Decor:* Warehouse, weapons depot, or dockyard. Shipping containers and shelves of crates.\
       *Entrance:* _Lowest_ room die. Garage door.\
-      *Exit:* #d6_mini(3) or _highest_ room die. Access hatch with OSHA-approved ladder (very long).
+      *Exit:* #d6_mini(3)~or _highest_ room die. Access hatch with OSHA-approved ladder (very long).
     ],
   )
 
@@ -511,9 +509,9 @@
 
   #pamph_grid(
     d6_maker(1),
-    [Gateways sealing off ports. Not even Daemons are allowed through.],
+    [Gateways sealing off ports on walls. No one is allowed through.],
     d6_maker(4),
-    [Data encryption center. Long line of Users. You have the master key.],
+    [Data encryption center. Long line of Users. JRH can decrypt anything.],
     grid.hline(stroke: 0.5pt),
     d6_maker(2),
     [Inspection station. Packet-sniffing Daemons can tell you're _rogue_.],
@@ -574,7 +572,7 @@
     floor_desc_num[x 9],
     [
       *Decor:* Skyscraper penthouse, a superyacht, a private island, etc. Overuse of marble and silver.\
-      *Entrance:* #d6_mini(2) or _lowest_ room die. Double doors.\
+      *Entrance:* #d6_mini(2)~or _lowest_ room die. Double doors.\
       *Exit:* _Next lowest_ room die. Stairs into a dark room with files on a pedestal. Not a trap. :)
     ],
   )

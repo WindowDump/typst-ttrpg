@@ -17,7 +17,7 @@
   margin: 12pt,
 )
 
-#panel_holder(panel_3, panel_2, panel_1)
+#panel_holder(panel_2, panel_3, panel_1)
 
 #pagebreak()
 

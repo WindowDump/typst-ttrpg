@@ -36,13 +36,15 @@
   columns: (3fr, 3fr, 4fr),
   column-gutter: (18pt, 24pt),
   row-gutter: row_gutter,
-  grid.cell( // Header
+  grid.cell(
+    // Header
     colspan: 2,
     align: center + top,
     inset: (bottom: row_gutter, x: 24pt),
     image("longshot-city-logo.svg", alt: "Longshot City Logo"),
   ),
-  grid.cell( // Inventory & notes
+  grid.cell(
+    // Inventory & notes
     rowspan: 3,
     stroke: none,
     grid(
@@ -84,7 +86,8 @@
       )
     ),
   ),
-  grid.cell( // Identity, advanced skills & powers
+  grid.cell(
+    // Identity, advanced skills & powers
     rowspan: 2,
     grid(
       columns: 1fr,
@@ -145,7 +148,8 @@
       ),
     ),
   ),
-  [ // Appearance & Stats
+  [
+    // Appearance & Stats
     #block(
       height: 259.65pt,
       width: 100%,
@@ -218,7 +222,8 @@
       ),
     )
   ],
-  grid.cell(inset: (top: 4pt))[ // Attacks
+  grid.cell(inset: (top: 4pt))[
+    // Attacks
     #let ab_label(x) = text(
       x,
       font: "Comic Helvetic",
@@ -244,16 +249,15 @@
                 (ab_label(str(x)),)
               },
               ab_label[7+],
-              ..for x in range(1, 8) {
-                (
-                  rect(
-                    stroke: 0.5pt,
-                    width: 12.5pt,
-                    height: 18.75pt,
-                    inset: 0pt,
-                  ),
-                )
-              }
+              ..(
+                rect(
+                  stroke: 0.5pt,
+                  width: 12.5pt,
+                  height: 18.75pt,
+                  inset: 0pt,
+                ),
+              )
+                * 7,
             ),
           )
         }
@@ -755,6 +759,7 @@
         [3],
         [Web Spinning],
         [3],
-      ),),
+      ),
+    ),
   ),
 )

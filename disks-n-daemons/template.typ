@@ -1,4 +1,4 @@
-#import "@preview/hydra:0.5.1": hydra, selectors
+#import "@preview/hydra:0.6.1": hydra, selectors
 #import selectors: custom
 
 // hydra-friendly chapter indicator
@@ -20,7 +20,7 @@
 // display trix
 
 #let boxify(word, fill: white, inset: 0pt, outset: 0pt) = for l in word {
-  box(upper(l), fill: fill, inset: inset, outset: outset)
+  (box(upper(l), fill: fill, inset: inset, outset: outset),)
 }
 
 // dice stuff
@@ -540,7 +540,7 @@
   align: left + horizon,
   grid(
     columns: 2,
-    row-gutter: 8pt,
+    row-gutter: 12pt,
     column-gutter: 3pt,
     die1, count1,
     die2, count2,

@@ -70,7 +70,7 @@
         row-gutter: (4pt, 4pt, 12pt, 4pt),
         cover_box_outline(
           stack(
-            ..boxify("Disks", inset: (x: 1pt, y: 2pt)).children,
+            ..boxify("Disks", inset: (x: 1pt, y: 2pt)),
             spacing: 0.5em,
             dir: ltr,
           ),
@@ -82,7 +82,7 @@
         ),
         cover_box_outline(
           stack(
-            ..boxify("Daemons", inset: (x: 1pt, y: 2pt)).children,
+            ..boxify("Daemons", inset: (x: 1pt, y: 2pt)),
             spacing: 1fr,
             dir: ltr,
           ),
@@ -132,7 +132,7 @@
 
   The year is 198X. Higher learning institutions and private defense contractors have linked mainframe computers via the *ARPANET Project*. The stated goal is sharing of resources and communication. A (likely intentional) bug in the encryption scheme allows easy access to any system. You recently exploited this with the help of *JRH*, a graduate student in Cambridge.
 
-  A tool developed in Palo Alto, CA by a *CYCLOPS* proxy company allows beaming of human consciousness into a virtual office environment named the *Ideaspace*, a digital skyscraper visualized as an endless series of floors. State of the art technology provides high-resolution 2-bit monochromatic graphics. There is a lot of dithering, but text looks really good. Users can conduct common tasks like document editing, programming, or system administration. They can even access any ARPANET server.
+  A tool developed in Palo Alto, CA by a *CYCLOPS* proxy company allows beaming of human consciousness into a virtual office environment named the *Ideaspace*, a digital skyscraper with an unlimited number of floors. State of the art technology provides high-resolution 2-bit monochromatic graphics. There is a lot of dithering, but text looks really good. Users can conduct common tasks like document editing, programming, or system administration. They can even access any ARPANET server.
 
   Computer labs have installed these beaming chairs for development or demonstration, and some are used every day. Publicly, there are no known side effects...
 ]
@@ -145,18 +145,31 @@
 
   *Users* represent a person's Ideaspace session, full-beam or otherwise: gray capsules in a roughly humanoid shape. JRH's hacks disguise you as one of them, but not all are fooled - you're _rogue_, not authorized to be there.
 
-  *Daemons* represent a system process, (re)generated as needed. Common Daemons are "cute" to discourage attacks from new Users: about three feet tall, rotund, with conical horns. They love *TOKENS*, eating them like candy or cigarettes, and perform their only programmed task (save a file, message a User, fetch news, etc.) in exchange for one. Other Daemons are modeled after fantasy creatures and have more complex programming.
+  *Daemons* represent a system process, (re)generated as needed. Common Daemons are "cute" to discourage attacks from new Users: about three feet tall, rotund, with conical horns. They love *TOKENS*, eating them like candy or cigarettes, and eagerly perform their programmed task (save a file, send a message, fetch news...) in exchange for one. Other Daemons are modeled after fantasy creatures and have more complex programming.
 
   = Floor transmission <floor-transmission>
 
-  FIST is breaching the Ideaspace with a hacked up tech demo -- don't expect to go unnoticed with all your bits intact. Transmitting between floors can cause *DATA LOSS* -- *PARITY BITS* can be found to correct errors. When FIST transmits to a new floor, roll *1D6* for complications:
+  FIST is breaching the Ideaspace with a hacked up tech demo -- don't expect to go unnoticed with all your bits intact. Transmitting between floors may cause *DATA LOSS* -- *PARITY BITS* can be held to correct errors. When FIST transmits to a new floor, roll *1D6* for complications:
 
-  + *Data corruption.* Consume a PARITY BIT or gain a level of DATA LOSS (see below).
-  + *Noise.* Consume a PARITY BIT or take 1 DAMAGE.
-  + *Interference.* Consume a PARITY BIT or lose an item.
-  + *Big footprint.* Set the #link(<cyberclock>)[_CYBERCLOCK_] to *4*.
-  + *Session logged.* Reduce the _CYBERCLOCK_ by *1D6*.
-  + Mercifully, a clean and quiet transmission.
+  #set par(justify: false)
+  #grid(
+    columns: (auto, 1fr),
+    column-gutter: 0.65em,
+    row-gutter: 0.65em,
+    d6_mini(21),
+    [*Data corruption.* Consume a PARITY BIT or gain a level of DATA LOSS (see below).],
+
+    d6_mini(32), [*Noise.* Consume a PARITY BIT or take 1 DAMAGE.],
+    d6_mini(23),
+    par(justify: true)[*Interference.* Consume a PARITY BIT or lose an item.],
+
+    d6_mini(24),
+    [*Big footprint.* Set the #link(<cyberclock>)[_CYBERCLOCK_] to *4*.],
+
+    d6_mini(25), [*Session logged.* Reduce the _CYBERCLOCK_ by *1D6*.],
+    d6_mini(26), [Mercifully, a clean and quiet transmission.],
+  )
+  #set par(justify: true)
 
   At 3 levels of *DATA LOSS* an operative is experiencing *Achiba Syndrome* - their mind treats the Ideaspace as real and cannot return to their original body. A separate rescue mission is required if this is undesired.
 
@@ -171,10 +184,9 @@
   - *Films:* _TRON_ (1982), _WarGames_ (1983)
 
   Text & layout by Window Dump, 2025. Written in #link("https://typst.app")[Typst] on a #link("https://github.com/foostan/crkbd/tree/v4.0")[Corne].\
-  // Set in #link("https://practicaltypography.com/charter.html")[Charter], #link("https://github.com/Omnibus-Type/Archivo")[Archivo], and #link("https://tug.org/FontCatalogue/cmrfonts.html")[Computer Modern Roman Dunhill].\
-  Based on #link("https://claymorerpgs.itch.io/fist")[_FIST: Ultra Edition_] by CLAYMORE RPGs, licensed under\ #link("https://creativecommons.org/licenses/by-sa/4.0/")[CC BY-SA 4.0]: https://creativecommons.org/licenses/by-sa/4.0/.\
-  This document is licensed under #link("https://creativecommons.org/licenses/by-sa/4.0/")[CC BY-SA 4.0].
-
+  Set in #link("https://practicaltypography.com/charter.html")[Charter], #link("https://github.com/Omnibus-Type/Archivo")[Archivo], and #link("https://tug.org/FontCatalogue/cmrfonts.html")[Computer Modern Roman Dunhill].\
+  Based on #link("https://claymorerpgs.itch.io/fist")[_FIST: Ultra Edition_] by CLAYMORE RPGs, licensed under\ #link("https://creativecommons.org/licenses/by-sa/4.0/")[CC BY-SA 4.0]: #link("https://creativecommons.org/licenses/by-sa/4.0/")[creativecommons.org/licenses/by-sa/4.0/]\
+  This document is licensed under #link("https://creativecommons.org/licenses/by-sa/4.0/")[CC BY-SA 4.0].\
   greetz to the FIST server, the NSR Cauldron, and Dice Exploder.
 ]
 
@@ -248,9 +260,9 @@
 )[
   = Floor plan generation
 
-  The Ideaspace is visualized as a series of floors. Decide the number of floors until vital intel relating to a member of FIST's Roles is found. Use the presented floor order or choose another (like D3+floor number). Each floor has "stairs" that transmit to the next floor, but not back. See #link(<floor-transmission>)[_Floor transmission_] for the risks.
+  The Ideaspace is visualized as a series of floors. Decide the number of floors until vital intel relating to a member of FIST's Roles is found (like 4). Use the presented order or choose another (like D3+floor number). Each floor has "stairs" that transmit "down" to the next floor, but not back "up." See #link(<floor-transmission>)[_Floor transmission_] for the risks.
 
-  Gather *12 D6's*. Choose 3 of the same color to represent #d6_mini(21)~_negative space_. Other dice represent #d6_mini(1)~_rooms_. Themes for floors and their rooms are described on the right. Each floor shows how much of each dice to use, the locations of the entrance and exit, and six room types.
+  Gather *12 D6's*. Choose 3 of the same color to represent #box(stack(dir: ltr, spacing: 4pt, d6_mini(21), [_negative space_.])) Other dice represent #box(stack(dir: ltr, spacing: 4pt, d6_mini(1), [_rooms_.])) Floors are described on the right: a theme, how many of each dice type to use, six room types, and the rooms containing the entrance and exit (each on a wall or the floor).
 
   #grid(
     columns: (auto, 1fr),
@@ -288,13 +300,13 @@
 
   #box(stack(dir: ltr, spacing: 4pt, d6_mini(2), d6_mini(4), d6_mini(6))) *Even rooms* contain a denizen. Roll on the #link(<encounter-table>)[_encounter table_] to learn who is there when FIST arrives.
 
-  #box(stack(dir: ltr, spacing: 4pt, d6_mini(1), d6_mini(3), d6_mini(5))) *Odd rooms* contain a text file on a disk. Choose or roll: #d6_mini(1)~meeting minutes, #d6_mini(2)~TPS reports, #d6_mini(3)~bad puns,\ #d6_mini(4)~documentation, #d6_mini(5)~Usenet thread, #d6_mini(6)~warez or philez
+  #box(stack(dir: ltr, spacing: 4pt, d6_mini(21), d6_mini(23), d6_mini(25))) *Odd rooms* contain a text file on a disk. Choose or roll: #d6_mini(1)~meeting minutes, #d6_mini(2)~TPS reports, #d6_mini(3)~bad puns,\ #d6_mini(4)~documentation, #d6_mini(5)~Usenet thread, #d6_mini(6)~warez or philez
 
   #box(stack(dir: ltr, spacing: 4pt, d6_mini(1), d6_mini(2), d6_mini(3))) *Minor rooms* have a _4-in-6_ chance of containing a _common item_ (#link("https://claymorerpgs.itch.io/fist")[_FIST: Ultra Edition_], pg. 85). These are GUI wrappers over an appropriate utility program.
 
   #block(
     below: 0.60em,
-  )[#box(stack(dir: ltr, spacing: 4pt, d6_mini(4), d6_mini(5), d6_mini(6))) *Major rooms* contain an item. Choose or roll:]
+  )[#box(stack(dir: ltr, spacing: 4pt, d6_mini(24), d6_mini(25), d6_mini(26))) *Major rooms* contain an item. Choose or roll:]
 
   #pamph_grid(
     columns: (auto, 1fr) * 3,
@@ -393,9 +405,9 @@
 
   #floor_desc(
     d6_maker(33, size: 16pt),
-    floor_desc_num[x 3],
+    floor_desc_num[#sym.times\3],
     d6_maker(6, size: 16pt),
-    floor_desc_num[x 6],
+    floor_desc_num[#sym.times\6],
     [
       *Decor:* Ultra-modern office, with fake windows displaying views from real skyscrapers.\
       *Entrance:* _Lowest_ room die. You awake in a chair, surrounded by tutorial messages.\
@@ -431,9 +443,9 @@
 
     #floor_desc(
       d6_maker(23, size: 16pt),
-      floor_desc_num[x 3],
+      floor_desc_num[#sym.times\3],
       d6_maker(16, size: 16pt),
-      floor_desc_num[x 6],
+      floor_desc_num[#sym.times\6],
       [
         *Decor:* Bustling post office, a cubic honeycomb of boxes and machinery. Lines on the floor.\
         *Entrance:* _Lowest_ room die. Automatic door.\
@@ -463,9 +475,9 @@
 
   #floor_desc(
     d6_maker(21, size: 16pt),
-    floor_desc_num[x 1],
+    floor_desc_num[#sym.times\1],
     d6_maker(5, size: 16pt),
-    floor_desc_num[x 8],
+    floor_desc_num[#sym.times\8],
     [
       *Decor:* Warehouse, weapons depot, or dockyard. Shipping containers and shelves of crates.\
       *Entrance:* _Lowest_ room die. Garage door.\
@@ -496,9 +508,9 @@
 
   #floor_desc(
     d6_maker(22, size: 16pt),
-    floor_desc_num[x 2],
+    floor_desc_num[#sym.times\2],
     d6_maker(13, size: 16pt),
-    floor_desc_num[x 7],
+    floor_desc_num[#sym.times\7],
     [
       *Decor:* Military base, lots of fences. Users here carry an ACCESS CARD, Daemons expect one.\
       _3-in-6:_ walls appear to be literally made of fire.\
@@ -535,9 +547,9 @@
 
     #floor_desc(
       d6_maker(32, size: 16pt),
-      floor_desc_num[x 2],
+      floor_desc_num[#sym.times\2],
       d6_maker(2, size: 16pt),
-      floor_desc_num[x 7],
+      floor_desc_num[#sym.times\7],
       [
         *Decor:* Series of laboratories littered with equipment and chunks of half-finished Daemons.\
         *Entrance:* _Lowest_ room die. Airlock.\
@@ -567,9 +579,9 @@
 
   #floor_desc(
     d6_maker(20, size: 16pt),
-    floor_desc_num[x 0],
+    floor_desc_num[#sym.times\0],
     d6_maker(4, size: 16pt),
-    floor_desc_num[x 9],
+    floor_desc_num[#sym.times\9],
     [
       *Decor:* Skyscraper penthouse, a superyacht, a private island, etc. Overuse of marble and silver.\
       *Entrance:* #d6_mini(2)~or _lowest_ room die. Double doors.\

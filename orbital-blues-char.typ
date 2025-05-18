@@ -283,8 +283,8 @@
 #let sheet_info_grid(deets) = grid(
   columns: (2fr, 6fr),
   inset: (x, y) => (
-    top: if y == 0 { glob_gutter * 1 } else { glob_gutter * 2 },
-    bottom: glob_gutter * 2,
+    top: if y == 0 { 0pt } else { glob_gutter * 2 },
+    bottom: if y == 0 { 0pt } else { glob_gutter * 2 },
     right: if y == 0 { 0pt } else if x == 0 { glob_gutter * 2 } else {
       glob_gutter
     },
@@ -294,10 +294,29 @@
   ),
   stroke: (x, y) => (
     right: if x == 0 { sheet_line_solid(fill: text.fill) },
-    top: if y > 0 { sheet_line_dotted(fill: text.fill) },
+    top: if y > 1 { sheet_line_dotted(fill: text.fill) },
   ),
   align: (x, y) => if y == 0 { center } else { left },
-  sheet_label[Name], sheet_label[Details],
+  grid.cell(
+    inset: (right: 2pt),
+    box(
+      sheet_label[Name],
+      stroke: (bottom: sheet_line_solid(fill: text.fill)),
+      width: 100%,
+      outset: (left: 1pt),
+      inset: (left: 2pt, top: glob_gutter, bottom: glob_gutter * 2),
+    ),
+  ),
+  grid.cell(
+    inset: (left: 2pt),
+    box(
+      sheet_label[Details],
+      stroke: (bottom: sheet_line_solid(fill: text.fill)),
+      width: 100%,
+      outset: (right: 1pt),
+      inset: (right: 2pt, top: glob_gutter, bottom: glob_gutter * 2),
+    ),
+  ),
   ..for item in deets {
     (text(item.name, size: 10.5pt), text(item.details, size: 10.5pt))
   },
@@ -383,9 +402,29 @@
     ),
     inset: (top: glob_gutter * 1),
   ),
-  grid.cell(sheet_info_grid(char.equipment), colspan: 2, rowspan: 3),
+  grid.cell(
+    {
+      sheet_info_grid(char.equipment)
+      place(
+        line(stroke: sheet_line_dotted(fill: text.fill), length: 100%),
+        dy: glob_gutter,
+      )
+    },
+    colspan: 2,
+    rowspan: 3,
+  ),
   sheet_subheading("Remarks", colspan: 1),
-  grid.cell(char.remarks, colspan: 1, inset: (top: glob_gutter)),
+  grid.cell(
+    block(
+      char.remarks,
+      width: 100%,
+      outset: (x: 1pt),
+      // stroke: (bottom: sheet_line_thick(fill: text.fill)),
+      inset: (bottom: glob_gutter * 2),
+    ),
+    colspan: 1,
+    inset: (top: glob_gutter),
+  ),
 )
 
 // printable character sheet
@@ -426,7 +465,7 @@
     ),
   )
     * 6,
-  remarks: [],
+  remarks: pad(46.25pt, []),
 ))
 
 // variable object to pass to sheet function
